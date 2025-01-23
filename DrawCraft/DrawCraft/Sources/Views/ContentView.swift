@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PencilKit
 
 struct ContentView: View {
     @EnvironmentObject private var viewModel: DrawingViewModel
