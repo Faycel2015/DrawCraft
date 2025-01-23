@@ -5,7 +5,7 @@
 //  Created by FayTek on 1/22/25.
 //
 
-// swift-tools-version: 6.0
+// swift-tools-version:6.0.3
 import PackageDescription
 
 let package = Package(
@@ -28,7 +28,18 @@ let package = Package(
                 .product(name: "Collections", package: "swift-collections"),
                 "SFSafeSymbols"
             ],
-            path: "Sources"
+            path: "Sources",
+            exclude: [
+                // Exclude Git and build-related files
+                ".git",
+                ".build",
+                "hooks",
+                "info"
+            ],
+            resources: [
+                // Only include necessary resources
+                .process("Resources")
+            ]
         ),
         .testTarget(
             name: "DrawCraftTests",
