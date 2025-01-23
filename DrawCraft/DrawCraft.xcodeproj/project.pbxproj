@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B8E504C52D41DC030004655D /* PencilKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E504C42D41DC020004655D /* PencilKit.framework */; };
 		B8E5D8682D41CD320004655D /* SystemPackage in Frameworks */ = {isa = PBXBuildFile; productRef = B8E5D8672D41CD320004655D /* SystemPackage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B858B2C62D40482300D1797A /* DrawCraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawCraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8978DF32D42F946005A14F1 /* Collections.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Collections.xcodeproj; sourceTree = "<group>"; };
+		B8E504C42D41DC020004655D /* PencilKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PencilKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.2.sdk/System/Library/Frameworks/PencilKit.framework; sourceTree = DEVELOPER_DIR; };
+		B8E5DD382D41D8800004655D /* SFSafeSymbols.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = SFSafeSymbols.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -28,6 +32,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8E5D8682D41CD320004655D /* SystemPackage in Frameworks */,
+				B8E504C52D41DC030004655D /* PencilKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +43,7 @@
 			isa = PBXGroup;
 			children = (
 				B858B2C82D40482300D1797A /* DrawCraft */,
+				B8E504C32D41DBFF0004655D /* Frameworks */,
 				B858B2C72D40482300D1797A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,6 +52,28 @@
 			isa = PBXGroup;
 			children = (
 				B858B2C62D40482300D1797A /* DrawCraft.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B8978DF92D42F946005A14F1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B8E504C32D41DBFF0004655D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B8E504C42D41DC020004655D /* PencilKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B8E5DD3A2D41D8800004655D /* Products */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,6 +135,16 @@
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B858B2C72D40482300D1797A /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B8978DF92D42F946005A14F1 /* Products */;
+					ProjectRef = B8978DF32D42F946005A14F1 /* Collections.xcodeproj */;
+				},
+				{
+					ProductGroup = B8E5DD3A2D41D8800004655D /* Products */;
+					ProjectRef = B8E5DD382D41D8800004655D /* SFSafeSymbols.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				B858B2C52D40482300D1797A /* DrawCraft */,
@@ -273,10 +311,10 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Faycel.DrawCraft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -315,10 +353,10 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Faycel.DrawCraft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
