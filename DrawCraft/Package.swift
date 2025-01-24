@@ -5,7 +5,7 @@
 //  Created by FayTek on 1/22/25.
 //
 
-// swift-tools-version:6.0.3
+// swift-tools-version:5.9
 import PackageDescription
 
 let package = Package(
@@ -15,11 +15,17 @@ let package = Package(
         .macOS(.v13)
     ],
     products: [
-        .library(name: "DrawCraft", targets: ["DrawCraft"]),
+        .library(name: "DrawCraft", targets: ["DrawCraft"])
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-collections.git", from: "1.0.0"),
-        .package(url: "https://github.com/piknotech/SFSafeSymbols.git", from: "4.1.1")
+        .package(
+            url: "https://github.com/apple/swift-collections.git",
+            from: "1.0.0"
+        ),
+        .package(
+            url: "https://github.com/piknotech/SFSafeSymbols.git",
+            from: "4.1.1"
+        )
     ],
     targets: [
         .target(
@@ -30,14 +36,12 @@ let package = Package(
             ],
             path: "Sources",
             exclude: [
-                // Exclude Git and build-related files
                 ".git",
                 ".build",
                 "hooks",
                 "info"
             ],
             resources: [
-                // Only include necessary resources
                 .process("Resources")
             ]
         ),

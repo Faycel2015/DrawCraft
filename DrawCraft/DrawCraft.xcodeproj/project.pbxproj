@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B82C42BE2D43023100830BEE /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82C42A22D43023100830BEE /* Package.swift */; };
 		B82C48002D43079300830BEE /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = B82C47FF2D43079300830BEE /* Algorithms */; };
 		B82C48012D4307C500830BEE /* PencilKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E504C42D41DC020004655D /* PencilKit.framework */; };
 		B82C48022D4307C500830BEE /* PencilKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B8E504C42D41DC020004655D /* PencilKit.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -28,7 +29,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		B82C47BF2D4306C400830BEE /* SFSafeSymbols.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = SFSafeSymbols.xcodeproj; sourceTree = "<group>"; };
+		B82C42A22D43023100830BEE /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		B82C480C2D43141B00830BEE /* DrawCraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawCraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8978DF32D42F946005A14F1 /* Collections.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Collections.xcodeproj; sourceTree = "<group>"; };
 		B8E504C42D41DC020004655D /* PencilKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PencilKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.2.sdk/System/Library/Frameworks/PencilKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -39,59 +40,6 @@
 		B82C48092D43103B00830BEE /* Exceptions for "DrawCraft" folder in "DrawCraft" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				.build/checkouts/SFSafeSymbols/.gitignore,
-				.build/checkouts/SFSafeSymbols/CHANGELOG.md,
-				.build/checkouts/SFSafeSymbols/CODE_OF_CONDUCT.md,
-				.build/checkouts/SFSafeSymbols/CONTRIBUTING.md,
-				.build/checkouts/SFSafeSymbols/LICENSE,
-				.build/checkouts/SFSafeSymbols/Logo.png,
-				.build/checkouts/SFSafeSymbols/README.md,
-				.build/checkouts/SFSafeSymbols/SFSafeSymbols.podspec,
-				".build/repositories/SFSafeSymbols-a688b4ac/config",
-				".build/repositories/SFSafeSymbols-a688b4ac/description",
-				".build/repositories/SFSafeSymbols-a688b4ac/FETCH_HEAD",
-				".build/repositories/SFSafeSymbols-a688b4ac/HEAD",
-				".build/repositories/SFSafeSymbols-a688b4ac/hooks/applypatch-msg.sample",
-				".build/repositories/SFSafeSymbols-a688b4ac/hooks/commit-msg.sample",
-				".build/repositories/SFSafeSymbols-a688b4ac/hooks/fsmonitor-watchman.sample",
-				".build/repositories/SFSafeSymbols-a688b4ac/hooks/post-update.sample",
-				".build/repositories/SFSafeSymbols-a688b4ac/hooks/pre-applypatch.sample",
-				".build/repositories/SFSafeSymbols-a688b4ac/hooks/pre-commit.sample",
-				".build/repositories/SFSafeSymbols-a688b4ac/hooks/pre-merge-commit.sample",
-				".build/repositories/SFSafeSymbols-a688b4ac/hooks/pre-push.sample",
-				".build/repositories/SFSafeSymbols-a688b4ac/hooks/pre-rebase.sample",
-				".build/repositories/SFSafeSymbols-a688b4ac/hooks/pre-receive.sample",
-				".build/repositories/SFSafeSymbols-a688b4ac/hooks/prepare-commit-msg.sample",
-				".build/repositories/SFSafeSymbols-a688b4ac/hooks/push-to-checkout.sample",
-				".build/repositories/SFSafeSymbols-a688b4ac/hooks/sendemail-validate.sample",
-				".build/repositories/SFSafeSymbols-a688b4ac/hooks/update.sample",
-				".build/repositories/SFSafeSymbols-a688b4ac/info/exclude",
-				".build/repositories/SFSafeSymbols-a688b4ac/objects/pack/pack-a79a4319d329d0e26ed2f5ec3345b47a59483085.idx",
-				".build/repositories/SFSafeSymbols-a688b4ac/objects/pack/pack-a79a4319d329d0e26ed2f5ec3345b47a59483085.pack",
-				".build/repositories/SFSafeSymbols-a688b4ac/objects/pack/pack-a79a4319d329d0e26ed2f5ec3345b47a59483085.rev",
-				".build/repositories/SFSafeSymbols-a688b4ac/packed-refs",
-				".build/repositories/swift-collections-9a58d5cf/config",
-				".build/repositories/swift-collections-9a58d5cf/description",
-				".build/repositories/swift-collections-9a58d5cf/FETCH_HEAD",
-				".build/repositories/swift-collections-9a58d5cf/HEAD",
-				".build/repositories/swift-collections-9a58d5cf/hooks/applypatch-msg.sample",
-				".build/repositories/swift-collections-9a58d5cf/hooks/commit-msg.sample",
-				".build/repositories/swift-collections-9a58d5cf/hooks/fsmonitor-watchman.sample",
-				".build/repositories/swift-collections-9a58d5cf/hooks/post-update.sample",
-				".build/repositories/swift-collections-9a58d5cf/hooks/pre-applypatch.sample",
-				".build/repositories/swift-collections-9a58d5cf/hooks/pre-commit.sample",
-				".build/repositories/swift-collections-9a58d5cf/hooks/pre-merge-commit.sample",
-				".build/repositories/swift-collections-9a58d5cf/hooks/pre-push.sample",
-				".build/repositories/swift-collections-9a58d5cf/hooks/pre-rebase.sample",
-				".build/repositories/swift-collections-9a58d5cf/hooks/pre-receive.sample",
-				".build/repositories/swift-collections-9a58d5cf/hooks/prepare-commit-msg.sample",
-				".build/repositories/swift-collections-9a58d5cf/hooks/push-to-checkout.sample",
-				".build/repositories/swift-collections-9a58d5cf/hooks/update.sample",
-				".build/repositories/swift-collections-9a58d5cf/info/exclude",
-				".build/repositories/swift-collections-9a58d5cf/objects/pack/pack-7a4785a1841d0b5cd3519628d16ddbe117abb413.idx",
-				".build/repositories/swift-collections-9a58d5cf/objects/pack/pack-7a4785a1841d0b5cd3519628d16ddbe117abb413.pack",
-				".build/repositories/swift-collections-9a58d5cf/packed-refs",
-				".build/workspace-state.json",
 				Package.resolved,
 			);
 			target = B858B2C52D40482300D1797A /* DrawCraft */;
@@ -123,19 +71,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B82C47C12D4306C400830BEE /* Products */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		B858B2BD2D40482300D1797A = {
 			isa = PBXGroup;
 			children = (
 				B858B2C82D40482300D1797A /* DrawCraft */,
 				B8E504C32D41DBFF0004655D /* Frameworks */,
 				B82C480C2D43141B00830BEE /* DrawCraft.app */,
+				B82C42A22D43023100830BEE /* Package.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -227,10 +169,6 @@
 					ProjectRef = B8978DF32D42F946005A14F1 /* Collections.xcodeproj */;
 				},
 				{
-					ProductGroup = B82C47C12D4306C400830BEE /* Products */;
-					ProjectRef = B82C47BF2D4306C400830BEE /* SFSafeSymbols.xcodeproj */;
-				},
-				{
 					ProductGroup = B8E5DD3A2D41D8800004655D /* Products */;
 					ProjectRef = B8E5DD382D41D8800004655D /* SFSafeSymbols.xcodeproj */;
 				},
@@ -257,6 +195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B82C42BE2D43023100830BEE /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

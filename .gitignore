@@ -26,6 +26,16 @@ DerivedData
 Packages/
 Package.resolved
 
+# Git files that shouldn't be copied
+FETCH_HEAD
+HEAD
+hooks/
+info/
+description
+config
+packed-refs
+*.sample
+
 # CocoaPods
 Pods/
 *.xcworkspace
