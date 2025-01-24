@@ -44,8 +44,8 @@ struct CanvasView: PlatformViewRepresentable {
         canvas.minimumZoomScale = 1.0
         
         // Configure tool picker
-        if let window = UIApplication.shared.windows.first,
-           let toolPicker = PKToolPicker.shared(for: window) {
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let toolPicker = PKToolPicker.shared(for: windowScene) {
             toolPicker.setVisible(true, forFirstResponder: canvas)
             toolPicker.addObserver(canvas)
             canvas.becomeFirstResponder()
@@ -95,8 +95,8 @@ struct CanvasView: PlatformViewRepresentable {
         func canvasViewDidBeginUsingTool(_ canvasView: PKCanvasView) {
             if let tool = canvasView.tool as? PKInkingTool {
                 // Adjust ink based on pressure and tilt
-                let pressure = tool.azimuthUnitVector?.dy ?? 1.0
-                let tilt = tool.azimuthUnitVector?.dx ?? 0.0
+                let pressure = 1.0 // Replace with actual pressure value
+                let tilt = 0.0 // Replace with actual tilt value
                 
                 parent.viewModel.updateInkProperties(pressure: pressure, tilt: tilt)
             }

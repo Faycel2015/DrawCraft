@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import PencilKit
 
 struct MaskToolsPanel: View {
     @Binding var layer: DrawingLayer
@@ -52,18 +53,24 @@ struct MaskToolsPanel: View {
     }
     
     private func fillMask() {
-        // Implementation for filling mask
+        guard var mask = layer.mask else { return }
+        mask.drawing = PKDrawing(strokes: []) // Fill the mask with a clear drawing
+        layer.mask = mask
     }
     
     private func clearMask() {
-        // Implementation for clearing mask
+        layer.mask = nil
     }
     
     private func invertMask() {
-        // Implementation for inverting mask
+        guard var mask = layer.mask else { return }
+        mask.inverted.toggle()
+        layer.mask = mask
     }
     
     private func updateMask() {
-        // Implementation for updating mask properties
+        guard var mask = layer.mask else { return }
+        mask.isEnabled = true // Update mask properties as needed
+        layer.mask = mask
     }
 }

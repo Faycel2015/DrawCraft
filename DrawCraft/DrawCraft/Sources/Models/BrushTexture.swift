@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreImage
 import SwiftUI
 import PencilKit
 
@@ -41,6 +42,10 @@ struct BrushTexture: Identifiable {
     }
 }
 
+// Move the texture property to BrushStyle.Properties
 extension BrushStyle.Properties {
-    var texture: BrushTexture?
+    var texture: BrushTexture? {
+        get { nil } // Replace with actual logic if needed
+        set { /* Update texture logic */ }
+    }
 }

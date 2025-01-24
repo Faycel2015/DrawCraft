@@ -1,5 +1,6 @@
 import SwiftUI
 import PencilKit
+import Combine
 
 class DrawingViewModel: ObservableObject {
     @Published var selectedTool: DrawingTool = .pen
@@ -26,7 +27,7 @@ class DrawingViewModel: ObservableObject {
     var availableTools: [DrawingTool] { tools }
     var selectedLayer: DrawingLayer { layers[selectedLayerIndex] }
     
-    func updateTool(in canvasView: PKCanvasView) {
+    @MainActor func updateTool(in canvasView: PKCanvasView) {
         switch selectedTool {
         case .pen, .marker, .pencil:
             let ink = selectedBrushStyle.createInk(
@@ -81,16 +82,16 @@ class DrawingViewModel: ObservableObject {
         objectWillChange.send()
     }
     
-    func clearCanvas(canvasView: PKCanvasView) {
+    @MainActor func clearCanvas(canvasView: PKCanvasView) {
         layers[selectedLayerIndex].drawing = PKDrawing()
         updateCanvasDrawing(canvasView)
     }
     
-    func updateCanvasDrawing(_ canvasView: PKCanvasView) {
+    @MainActor func updateCanvasDrawing(_ canvasView: PKCanvasView) {
         canvasView.drawing = mergeVisibleLayers()
     }
     
-    func updateUndoState(canvasView: PKCanvasView) {
+    @MainActor func updateUndoState(canvasView: PKCanvasView) {
         canUndo = canvasView.undoManager?.canUndo ?? false
         canRedo = canvasView.undoManager?.canRedo ?? false
     }

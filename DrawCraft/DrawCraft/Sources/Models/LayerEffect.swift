@@ -55,15 +55,3 @@ struct EffectParameters {
         angle: 45
     )
 }
-
-extension DrawingLayer {
-    var effects: [LayerEffect] = []
-    
-    mutating func addEffect(_ type: EffectType) {
-        effects.append(LayerEffect(type: type))
-    }
-    
-    mutating func removeEffect(at index: Int) {
-        effects.remove(at: index)
-    }
-}

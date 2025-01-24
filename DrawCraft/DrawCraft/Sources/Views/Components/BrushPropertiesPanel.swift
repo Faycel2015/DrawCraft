@@ -52,6 +52,19 @@ struct BrushPropertiesPanel: View {
     }
 }
 
+struct LayerBlendModePicker: View {
+    @Binding var blendMode: BlendMode
+    
+    var body: some View {
+        Picker("Blend Mode", selection: $blendMode) {
+            ForEach(BlendMode.drawingModes, id: \.self) { mode in
+                Text(mode.name).tag(mode)
+            }
+        }
+        .pickerStyle(MenuPickerStyle())
+    }
+}
+
 struct SliderRow: View {
     let title: String
     @Binding var value: Double

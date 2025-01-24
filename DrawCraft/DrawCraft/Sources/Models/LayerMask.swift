@@ -27,15 +27,3 @@ struct LayerMask: Identifiable {
         self.inverted = inverted
     }
 }
-
-extension DrawingLayer {
-    var mask: LayerMask?
-    
-    mutating func createMask() {
-        mask = LayerMask(isEnabled: true)
-    }
-    
-    mutating func removeMask() {
-        mask = nil
-    }
-}

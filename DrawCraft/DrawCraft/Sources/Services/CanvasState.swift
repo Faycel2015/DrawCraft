@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import PencilKit
 
+@MainActor
 class CanvasState: ObservableObject {
     @Published var canvasView = PKCanvasView()
     @Published var drawingData: Data = Data()
@@ -18,7 +19,9 @@ class CanvasState: ObservableObject {
     @Published var showingGrid = false
     
     private var undoManager: UndoManager?
+    private var gridView: UIView? // To hold the grid overlay
     
+    @MainActor
     init(undoManager: UndoManager? = nil) {
         self.undoManager = undoManager
         setupCanvas()
@@ -59,7 +62,7 @@ class CanvasState: ObservableObject {
         return image
     }
     
-    func toggleGrid() {
+    @MainActor func toggleGrid() {
         showingGrid.toggle()
         if showingGrid {
             addGrid()
@@ -68,11 +71,52 @@ class CanvasState: ObservableObject {
         }
     }
     
-    private func addGrid() {
-        // Implementation for adding grid overlay
+    @MainActor private func addGrid() {
+        guard gridView == nil else { return } // Ensure grid is not already added
+        
+        // Create a grid overlay
+        let gridSize: CGFloat = 20.0 // Adjust grid size as needed
+        let gridColor = UIColor.gray.withAlphaComponent(0.5) // Adjust grid color and opacity
+        
+        let gridLayer = CAShapeLayer()
+        gridLayer.strokeColor = gridColor.cgColor
+        gridLayer.lineWidth = 1.0
+        
+        let path = UIBezierPath()
+        
+        // Draw vertical lines
+        var x: CGFloat = 0
+        while x < canvasView.bounds.width {
+            path.move(to: CGPoint(x: x, y: 0))
+            path.addLine(to: CGPoint(x: x, y: canvasView.bounds.height))
+            x += gridSize
+        }
+        
+        // Draw horizontal lines
+        var y: CGFloat = 0
+        while y < canvasView.bounds.height {
+            path.move(to: CGPoint(x: 0, y: y))
+            path.addLine(to: CGPoint(x: canvasView.bounds.width, y: y))
+            y += gridSize
+        }
+        
+        gridLayer.path = path.cgPath
+        
+        // Create a UIView to hold the grid layer
+        let gridView = UIView(frame: canvasView.bounds)
+        gridView.layer.addSublayer(gridLayer)
+        gridView.isUserInteractionEnabled = false // Ensure the grid doesn't interfere with drawing
+        
+        // Add the grid view as a subview to the canvas
+        canvasView.addSubview(gridView)
+        self.gridView = gridView // Store the grid view for later removal
     }
     
-    private func removeGrid() {
-        // Implementation for removing grid overlay
+    @MainActor private func removeGrid() {
+        guard let gridView = gridView else { return } // Ensure grid exists
+        
+        // Remove the grid view from the canvas
+        gridView.removeFromSuperview()
+        self.gridView = nil // Clear the reference
     }
 }

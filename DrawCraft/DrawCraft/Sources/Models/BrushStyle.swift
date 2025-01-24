@@ -143,19 +143,15 @@ enum BrushStyle: String, CaseIterable, Identifiable {
     
     func createInk(color: UIColor, properties: Properties, pressure: Double = 1.0, tilt: Double = 0.0, rotation: Double = 0.0) -> PKInkingTool {
         let width = properties.width *
-            (pressure * properties.pressureSensitivity) *
-            (1 + tilt * properties.tiltSensitivity) *
-            (1 + rotation * properties.rotationSensitivity)
-            
+        (pressure * properties.pressureSensitivity) *
+        (1 + tilt * properties.tiltSensitivity) *
+        (1 + rotation * properties.rotationSensitivity)
+        
         let ink = PKInkingTool(
-            inkType,
+            toolType, // Use the toolType property
             color: color.withAlphaComponent(properties.opacity),
             width: width
         )
-        
-        // Apply custom properties
-        ink.inkType.spacing = properties.spacing
-        ink.inkType.smoothing = properties.smoothing
         
         return ink
     }

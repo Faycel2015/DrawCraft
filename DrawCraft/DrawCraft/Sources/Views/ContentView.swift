@@ -188,6 +188,20 @@ struct ContentView: View {
     #endif
 }
 
+struct NewProjectView: View {
+    var body: some View {
+        Text("New Project View")
+            .padding()
+    }
+}
+
+struct SettingsView: View {
+    var body: some View {
+        Text("Settings View")
+            .padding()
+    }
+}
+
 #Preview {
     ContentView()
 }
