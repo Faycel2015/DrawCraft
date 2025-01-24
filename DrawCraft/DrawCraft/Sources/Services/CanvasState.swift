@@ -24,7 +24,7 @@ class CanvasState: ObservableObject {
         setupCanvas()
     }
     
-    private func setupCanvas() {
+    @MainActor private func setupCanvas() {
         canvasView.drawingPolicy = .anyInput
         canvasView.tool = PKInkingTool(.pen, color: .black, width: 5)
         #if os(iOS)
@@ -33,15 +33,15 @@ class CanvasState: ObservableObject {
         #endif
     }
     
-    func clearCanvas() {
+    @MainActor func clearCanvas() {
         canvasView.drawing = PKDrawing()
     }
     
-    func saveDrawing() {
+    @MainActor func saveDrawing() {
         drawingData = canvasView.drawing.dataRepresentation()
     }
     
-    func loadDrawing() {
+    @MainActor func loadDrawing() {
         do {
             let drawing = try PKDrawing(data: drawingData)
             canvasView.drawing = drawing
@@ -50,7 +50,7 @@ class CanvasState: ObservableObject {
         }
     }
     
-    func exportDrawing() -> UIImage? {
+    @MainActor func exportDrawing() -> UIImage? {
         let bounds = canvasView.bounds
         UIGraphicsBeginImageContextWithOptions(bounds.size, false, UIScreen.main.scale)
         canvasView.drawHierarchy(in: bounds, afterScreenUpdates: true)

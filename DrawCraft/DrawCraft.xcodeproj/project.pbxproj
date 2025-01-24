@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B82C42BE2D43023100830BEE /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82C42A22D43023100830BEE /* Package.swift */; };
 		B82C48002D43079300830BEE /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = B82C47FF2D43079300830BEE /* Algorithms */; };
 		B82C48012D4307C500830BEE /* PencilKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E504C42D41DC020004655D /* PencilKit.framework */; };
 		B82C48022D4307C500830BEE /* PencilKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B8E504C42D41DC020004655D /* PencilKit.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -29,7 +28,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		B82C42A22D43023100830BEE /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		B82C480C2D43141B00830BEE /* DrawCraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawCraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8978DF32D42F946005A14F1 /* Collections.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Collections.xcodeproj; sourceTree = "<group>"; };
 		B8E504C42D41DC020004655D /* PencilKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PencilKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.2.sdk/System/Library/Frameworks/PencilKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -40,7 +38,9 @@
 		B82C48092D43103B00830BEE /* Exceptions for "DrawCraft" folder in "DrawCraft" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Info.plist,
 				Package.resolved,
+				Package.swift,
 			);
 			target = B858B2C52D40482300D1797A /* DrawCraft */;
 		};
@@ -77,7 +77,6 @@
 				B858B2C82D40482300D1797A /* DrawCraft */,
 				B8E504C32D41DBFF0004655D /* Frameworks */,
 				B82C480C2D43141B00830BEE /* DrawCraft.app */,
-				B82C42A22D43023100830BEE /* Package.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -195,7 +194,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B82C42BE2D43023100830BEE /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

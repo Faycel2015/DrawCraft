@@ -60,7 +60,7 @@ class SceneManager: ObservableObject {
     @Published var isInSlideOver = false
     @Published var isPresentedAsPopover = false
     
-    func updateActiveScenes() {
+    @MainActor func updateActiveScenes() {
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
         
         if let userActivity = windowScene.userActivity {

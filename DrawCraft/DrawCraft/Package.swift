@@ -5,7 +5,7 @@
 //  Created by FayTek on 1/22/25.
 //
 
-// swift-tools-version:5.9
+// swift-tools-version:6.0
 import PackageDescription
 
 let package = Package(
@@ -20,11 +20,11 @@ let package = Package(
     dependencies: [
         .package(
             url: "https://github.com/apple/swift-collections.git",
-            from: "1.0.0"
+            .upToNextMajor(from: "1.0.4")
         ),
         .package(
             url: "https://github.com/piknotech/SFSafeSymbols.git",
-            from: "4.1.1"
+            .upToNextMajor(from: "4.2.0")
         )
     ],
     targets: [
@@ -39,7 +39,8 @@ let package = Package(
                 ".git",
                 ".build",
                 "hooks",
-                "info"
+                "info",
+                "Package.swift"  // Explicit exclusion
             ],
             resources: [
                 .process("Resources")

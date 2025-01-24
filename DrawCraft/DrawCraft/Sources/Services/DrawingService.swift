@@ -42,7 +42,7 @@ extension FileManager {
 
 // MARK: - DrawingService
 class DrawingService {
-    static let shared = DrawingService()
+    @MainActor static let shared = DrawingService()
     
     private init() {}
     
@@ -54,7 +54,7 @@ class DrawingService {
         try FileManager.loadDrawings()
     }
     
-    func exportAsImage(_ canvasView: PKCanvasView) -> PlatformImage? {
+    @MainActor func exportAsImage(_ canvasView: PKCanvasView) -> PlatformImage? {
         let bounds = canvasView.bounds
         
         #if os(iOS)
@@ -74,7 +74,7 @@ class DrawingService {
         #endif
     }
     
-    func exportAsPDF(_ canvasView: PKCanvasView) -> Data? {
+    @MainActor func exportAsPDF(_ canvasView: PKCanvasView) -> Data? {
         let bounds = canvasView.bounds
         let pdfData = NSMutableData()
         
@@ -100,7 +100,7 @@ class DrawingService {
 
 // MARK: - Test Save & Load Drawings
 extension DrawingService {
-    static func testSaveAndLoadDrawings() {
+    @MainActor static func testSaveAndLoadDrawings() {
         let drawingService = DrawingService.shared
         
         // Create a sample drawing

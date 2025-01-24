@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 extension BlendMode {
-    static var drawingModes: [BlendMode] = [
+    static let drawingModes: [BlendMode] = [
         .normal,
         .multiply,
         .screen,
