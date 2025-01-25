@@ -8,19 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		B82C48002D43079300830BEE /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = B82C47FF2D43079300830BEE /* Algorithms */; };
-		B82C48012D4307C500830BEE /* PencilKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E504C42D41DC020004655D /* PencilKit.framework */; };
-		B82C48022D4307C500830BEE /* PencilKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B8E504C42D41DC020004655D /* PencilKit.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B84588062D458D2400D82A14 /* PencilKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E504C42D41DC020004655D /* PencilKit.framework */; };
+		B84588072D458D2400D82A14 /* PencilKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B8E504C42D41DC020004655D /* PencilKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B8E5D8682D41CD320004655D /* SystemPackage in Frameworks */ = {isa = PBXBuildFile; productRef = B8E5D8672D41CD320004655D /* SystemPackage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		B82C48032D4307C500830BEE /* Embed Frameworks */ = {
+		B84588002D457FB300D82A14 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B82C48022D4307C500830BEE /* PencilKit.framework in Embed Frameworks */,
+				B84588072D458D2400D82A14 /* PencilKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -38,6 +38,8 @@
 		B82C48092D43103B00830BEE /* Exceptions for "DrawCraft" folder in "DrawCraft" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				"Info-iOS.plist",
+				"Info-macOS.plist",
 				Info.plist,
 				Package.resolved,
 				Package.swift,
@@ -64,7 +66,7 @@
 			files = (
 				B82C48002D43079300830BEE /* Algorithms in Frameworks */,
 				B8E5D8682D41CD320004655D /* SystemPackage in Frameworks */,
-				B82C48012D4307C500830BEE /* PencilKit.framework in Frameworks */,
+				B84588062D458D2400D82A14 /* PencilKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,7 +114,7 @@
 				B858B2C22D40482300D1797A /* Sources */,
 				B858B2C32D40482300D1797A /* Frameworks */,
 				B858B2C42D40482300D1797A /* Resources */,
-				B82C48032D4307C500830BEE /* Embed Frameworks */,
+				B84588002D457FB300D82A14 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -203,6 +205,7 @@
 		B858B2D32D40482800D1797A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -256,6 +259,9 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "\"TARGETED_DEVICE_FAMILY = 1,2  // For iOS/iPadOS targets\" \"SUPPORTED_PLATFORMS = iphoneos iphonesimulator macosx\" \"SUPPORTS_MACCATALYST = NO\"";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -264,6 +270,7 @@
 		B858B2D42D40482800D1797A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -310,6 +317,9 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "\"TARGETED_DEVICE_FAMILY = 1,2  // For iOS/iPadOS targets\" \"SUPPORTED_PLATFORMS = iphoneos iphonesimulator macosx\" \"SUPPORTS_MACCATALYST = NO\"";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 			};
 			name = Release;
@@ -328,7 +338,13 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DrawCraft/Info.plist;
+				INFOPLIST_FILE = "Debug-iphoneos: DrawCraft/Info-iOS.plist\nDebug-iphonesimulator: DrawCraft/Info-iOS.plist\nDebug-macos: DrawCraft/Info-macOS.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = DrawCraft;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Faycel. All rights reserved.";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "DrawCraft needs access to save your sketches and notes to your photo library.";
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -337,8 +353,10 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportsDocumentBrowser = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -371,7 +389,13 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DrawCraft/Info.plist;
+				INFOPLIST_FILE = "Release-iphoneos: DrawCraft/Info-iOS.plist\nRelease-iphonesimulator: DrawCraft/Info-iOS.plist\nRelease-macos: DrawCraft/Info-macOS.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = DrawCraft;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Faycel. All rights reserved.";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "DrawCraft needs access to save your sketches and notes to your photo library.";
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -380,8 +404,10 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportsDocumentBrowser = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";

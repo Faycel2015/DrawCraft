@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PencilKit
 
 @main
 struct DrawCraftApp: App {
@@ -18,16 +19,16 @@ struct DrawCraftApp: App {
                 .environmentObject(CanvasState())
                 .environmentObject(sceneManager)
                 .frame(minWidth: 800, minHeight: 600)
-                #if os(iOS)
+#if os(iOS) || (iPadOS)
                 .onReceive(NotificationCenter.default.publisher(for: UIScene.didActivateNotification)) { _ in
                     sceneManager.updateActiveScenes()
                 }
                 .onReceive(NotificationCenter.default.publisher(for: UIScene.didDisconnectNotification)) { _ in
                     sceneManager.updateActiveScenes()
                 }
-                #endif
+#endif
         }
-        #if os(macOS)
+#if os(macOS)
         .windowStyle(.hiddenTitleBar)
         .commands {
             CommandGroup(replacing: .newItem) {
@@ -50,11 +51,11 @@ struct DrawCraftApp: App {
                 .keyboardShortcut("s")
             }
         }
-        #endif
+#endif
     }
 }
 
-#if os(iOS)
+#if os(iOS) || (iPadOS)
 class SceneManager: ObservableObject {
     @Published var isInSplitView = false
     @Published var isInSlideOver = false
