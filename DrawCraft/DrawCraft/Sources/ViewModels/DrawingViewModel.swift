@@ -31,7 +31,7 @@ class DrawingViewModel: ObservableObject {
         switch selectedTool {
         case .pen, .marker, .pencil:
             let ink = selectedBrushStyle.createInk(
-                color: UIColor(properties.color), properties: BrushStyle.Properties.default,
+                color: UIColor(properties.color),
                 width: properties.thickness,
                 pressure: inkPressure,
                 tilt: inkTilt
@@ -99,16 +99,21 @@ class DrawingViewModel: ObservableObject {
     func toggleInspector() {
         isInspectorVisible.toggle()
     }
+    
+    @MainActor func exportAsImage(canvasView: PKCanvasView) -> PlatformImage? {
+        let bounds = canvasView.bounds
+        UIGraphicsBeginImageContextWithOptions(bounds.size, false, UIScreen.main.scale)
+        canvasView.drawHierarchy(in: bounds, afterScreenUpdates: true)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
+    
+    @MainActor func exportAsPDF(canvasView: PKCanvasView) -> Data? {
+        let drawing = canvasView.drawing
+        return drawing.dataRepresentation()
+    }
 }
-    
-    func exportAsImage(canvasView: PKCanvasView) -> PlatformImage? {
-        drawingService.exportAsImage(canvasView)
-    }
-    
-    func exportAsPDF(canvasView: PKCanvasView) -> Data? {
-        drawingService.exportAsPDF(canvasView)
-    }
-
 
 struct DrawingProperties {
     var color: Color = .black

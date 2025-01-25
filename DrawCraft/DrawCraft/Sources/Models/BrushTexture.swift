@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import CoreImage
 import SwiftUI
 import PencilKit
 
@@ -45,7 +44,19 @@ struct BrushTexture: Identifiable {
 // Move the texture property to BrushStyle.Properties
 extension BrushStyle.Properties {
     var texture: BrushTexture? {
-        get { nil } // Replace with actual logic if needed
-        set { /* Update texture logic */ }
+        switch self.blendMode {
+        case .normal:
+            return nil
+        case .multiply:
+            return BrushTexture.defaultTextures[0]
+        case .screen:
+            return BrushTexture.defaultTextures[1]
+        case .overlay:
+            return BrushTexture.defaultTextures[2]
+        case .hardLight:
+            return BrushTexture.defaultTextures[3]
+        default:
+            return nil
+        }
     }
 }

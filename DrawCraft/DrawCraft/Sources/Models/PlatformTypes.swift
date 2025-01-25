@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+// Platform-specific types
 #if os(iOS)
 import UIKit
 typealias PlatformImage = UIImage

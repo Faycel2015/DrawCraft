@@ -9,13 +9,13 @@ import Foundation
 import SwiftUI
 import PencilKit
 
-#if os(iOS)
-import UIKit
-typealias PlatformImage = UIImage
-#else
-import AppKit
-typealias PlatformImage = NSImage
-#endif
+//#if os(iOS)
+//import UIKit
+////typealias PlatformImage = UIImage
+//#else
+//import AppKit
+//typealias PlatformImage = NSImage
+//#endif
 
 // MARK: - FileManager Extension
 extension FileManager {

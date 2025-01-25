@@ -147,12 +147,18 @@ enum BrushStyle: String, CaseIterable, Identifiable {
         (1 + tilt * properties.tiltSensitivity) *
         (1 + rotation * properties.rotationSensitivity)
         
-        let ink = PKInkingTool(
-            toolType, // Use the toolType property
-            color: color.withAlphaComponent(properties.opacity),
-            width: width
-        )
-        
-        return ink
+        let inkType: PKInkingTool.InkType
+        switch self {
+        case .pen:
+            inkType = .pen
+        case .marker:
+            inkType = .marker
+        case .pencil:
+            inkType = .pencil
+        case .watercolor, .calligraphy, .airbrush, .crayon, .charcoal:
+            // Map unsupported brush styles to .pen as a fallback
+            inkType = .pen
+        }
+        return PKInkingTool(inkType, color: color, width: width)
     }
 }

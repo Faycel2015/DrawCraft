@@ -6,12 +6,12 @@
 //
 
 import Foundation
-import SwiftUI
 import PencilKit
 
 @MainActor
 class CanvasState: ObservableObject {
     @Published var canvasView = PKCanvasView()
+    @Published var currentDrawing: Drawing? // Add this property
     @Published var drawingData: Data = Data()
     @Published var toolbarIsHidden = false
     @Published var showColorPicker = false

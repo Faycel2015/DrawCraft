@@ -10,7 +10,7 @@ import PencilKit
 import SwiftUI
 
 struct Drawing: Identifiable, Codable {
-    let id: UUID
+    var id = UUID()
     var name: String
     var createdAt: Date
     var modifiedAt: Date
