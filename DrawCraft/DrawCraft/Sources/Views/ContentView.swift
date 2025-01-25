@@ -9,7 +9,7 @@ import SwiftUI
 import PencilKit
 
 struct ContentView: View {
-    @EnvironmentObject private var viewModel: DrawingViewModel
+    @StateObject private var viewModel = DrawingViewModel()
     @EnvironmentObject private var canvasState: CanvasState
     #if os(iOS)
     @EnvironmentObject private var sceneManager: SceneManager

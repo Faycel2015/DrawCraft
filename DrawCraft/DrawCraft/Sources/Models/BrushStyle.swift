@@ -6,8 +6,14 @@
 //
 
 import Foundation
-import SwiftUI
 import PencilKit
+import SwiftUI
+
+@MainActor
+extension PKInkingTool.InkType {
+    static let watercolor = PKInkingTool.InkType(rawValue: "watercolor")
+    static let airbrush = PKInkingTool.InkType(rawValue: "airbrush")
+}
 
 enum BrushStyle: String, CaseIterable, Identifiable {
     case pen
@@ -18,24 +24,26 @@ enum BrushStyle: String, CaseIterable, Identifiable {
     case airbrush
     case crayon
     case charcoal
-    
+
     var id: String { rawValue }
-    
+
     var name: String {
         rawValue.capitalized
     }
-    
+
     // Enhanced brush properties
-    struct Properties {
-        var width: CGFloat
-        var opacity: Double
-        var spacing: CGFloat
-        var smoothing: CGFloat
-        var pressureSensitivity: Double
-        var tiltSensitivity: Double
-        var rotationSensitivity: Double
-        var blendMode: BlendMode
-        
+    struct Properties: Equatable {
+        var width: Double = 5.0
+        var opacity: Double = 1.0
+        var spacing: Double = 0.5
+        var smoothing: Double = 0.5
+        var pressureSensitivity: Double = 1.0
+        var tiltSensitivity: Double = 1.0
+        var rotationSensitivity: Double = 1.0
+        var blendMode: BlendMode = .normal
+        var color: Color = .black // Added
+        var isRulerActive: Bool = false // Added
+
         static let `default` = Properties(
             width: 5,
             opacity: 1.0,
@@ -44,10 +52,12 @@ enum BrushStyle: String, CaseIterable, Identifiable {
             pressureSensitivity: 1.0,
             tiltSensitivity: 1.0,
             rotationSensitivity: 1.0,
-            blendMode: .normal
+            blendMode: .normal,
+            color: .black, // Added
+            isRulerActive: false // Added
         )
     }
-    
+
     var defaultProperties: Properties {
         switch self {
         case .pen:
@@ -72,6 +82,7 @@ enum BrushStyle: String, CaseIterable, Identifiable {
                 rotationSensitivity: 0.2,
                 blendMode: .multiply
             )
+
         case .pencil:
             return Properties(
                 width: 3,
@@ -140,13 +151,13 @@ enum BrushStyle: String, CaseIterable, Identifiable {
             )
         }
     }
-    
+
     func createInk(color: UIColor, properties: Properties, pressure: Double = 1.0, tilt: Double = 0.0, rotation: Double = 0.0) -> PKInkingTool {
         let width = properties.width *
-        (pressure * properties.pressureSensitivity) *
-        (1 + tilt * properties.tiltSensitivity) *
-        (1 + rotation * properties.rotationSensitivity)
-        
+            (pressure * properties.pressureSensitivity) *
+            (1 + tilt * properties.tiltSensitivity) *
+            (1 + rotation * properties.rotationSensitivity)
+
         let inkType: PKInkingTool.InkType
         switch self {
         case .pen:

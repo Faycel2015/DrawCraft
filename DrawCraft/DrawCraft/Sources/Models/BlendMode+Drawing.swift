@@ -10,43 +10,31 @@ import SwiftUI
 
 extension BlendMode {
     static let drawingModes: [BlendMode] = [
-        .normal,
-        .multiply,
-        .screen,
-        .overlay,
-        .darken,
-        .lighten,
-        .colorDodge,
-        .colorBurn,
-        .softLight,
-        .hardLight,
-        .difference,
-        .exclusion,
-        .hue,
-        .saturation,
-        .color,
-        .luminosity
+        .normal, .multiply, .screen, .overlay, .darken, .lighten,
+        .colorDodge, .colorBurn, .softLight, .hardLight,
+        .difference, .exclusion, .hue, .saturation, .color, .luminosity
     ]
-    
+
+    private static let modeNames: [BlendMode: String] = [
+        .normal: "Normal",
+        .multiply: "Multiply",
+        .screen: "Screen",
+        .overlay: "Overlay",
+        .darken: "Darken",
+        .lighten: "Lighten",
+        .colorDodge: "Color Dodge",
+        .colorBurn: "Color Burn",
+        .softLight: "Soft Light",
+        .hardLight: "Hard Light",
+        .difference: "Difference",
+        .exclusion: "Exclusion",
+        .hue: "Hue",
+        .saturation: "Saturation",
+        .color: "Color",
+        .luminosity: "Luminosity"
+    ]
+
     var name: String {
-        switch self {
-        case .normal: return "Normal"
-        case .multiply: return "Multiply"
-        case .screen: return "Screen"
-        case .overlay: return "Overlay"
-        case .darken: return "Darken"
-        case .lighten: return "Lighten"
-        case .colorDodge: return "Color Dodge"
-        case .colorBurn: return "Color Burn"
-        case .softLight: return "Soft Light"
-        case .hardLight: return "Hard Light"
-        case .difference: return "Difference"
-        case .exclusion: return "Exclusion"
-        case .hue: return "Hue"
-        case .saturation: return "Saturation"
-        case .color: return "Color"
-        case .luminosity: return "Luminosity"
-        default: return "Normal"
-        }
+        return Self.modeNames[self] ?? "Normal"
     }
 }

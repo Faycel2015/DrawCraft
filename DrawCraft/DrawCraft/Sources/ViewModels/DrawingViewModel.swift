@@ -3,8 +3,9 @@ import PencilKit
 import Combine
 
 class DrawingViewModel: ObservableObject {
+    @Published var selectedBrushStyle: BrushStyle = .pen
+    @Published var properties: BrushStyle.Properties = .default // Use BrushStyle.Properties
     @Published var selectedTool: DrawingTool = .pen
-    @Published var properties = DrawingProperties()
     @Published var canUndo = false
     @Published var canRedo = false
     @Published var showingToolOptions = false
@@ -16,7 +17,6 @@ class DrawingViewModel: ObservableObject {
     // Apple Pencil Properties
     @Published var inkPressure: Double = 1.0
     @Published var inkTilt: Double = 0.0
-    @Published var selectedBrushStyle: BrushStyle = .pen
     
     // Layer Management
     @Published var layers: [DrawingLayer] = [DrawingLayer(name: "Background")]
@@ -32,15 +32,11 @@ class DrawingViewModel: ObservableObject {
         case .pen, .marker, .pencil:
             let ink = selectedBrushStyle.createInk(
                 color: UIColor(properties.color),
-                width: properties.thickness,
+                properties: properties,
                 pressure: inkPressure,
                 tilt: inkTilt
             )
-            #if os(iOS)
-            ink.azimuthUnitVector = CGVector(dx: cos(inkTilt), dy: sin(inkTilt))
-            #endif
             canvasView.tool = ink
-            
         case .eraser:
             canvasView.tool = PKEraserTool(.vector)
         case .lasso:
@@ -119,4 +115,7 @@ struct DrawingProperties {
     var color: Color = .black
     var thickness: CGFloat = 5.0
     var isRulerActive: Bool = false
+    var opacity: Double = 1.0
+    var spacing: Double = 1.0
+    var smoothing: Double = 0.5
 }
